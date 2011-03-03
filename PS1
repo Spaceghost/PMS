@@ -15,7 +15,7 @@ echo " \e[0;35m\]Stash"; fi)\e[0;34m\]]"
 
 # Check for RVM
 if [ -f `which rvm` ]; then \
-echo  "\e[0;32m\]Ruby: `rvm-prompt | cut -d "@" -f 1` | Gemset: `rvm gemset name`"; fi
+echo  "\e[0;32m\]Ruby: `rvm-prompt | cut -d "@" -f 1` | Gemset: `rvm gemset name | sed s:.*/::`"; fi
 echo -n "\e[0;31m\]\w"
 
 # Check for UTF-8 support
