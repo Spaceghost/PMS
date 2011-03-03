@@ -1,4 +1,2 @@
-1. Add Ruby Support
-2. Add Gemset Support
-3. Clean up git working tree status (staged/unstaged changes)
+1. Clean up git working tree status (staged/unstaged changes)
 
