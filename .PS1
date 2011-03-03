@@ -1,0 +1,9 @@
+#export PS1='$(__git_ps1 "(%s)")'
+#PROMPT_COMMAND=$(n=$(__git_ps1 "(%s)"))
+export PS1='$(git branch &>/dev/null; if [ $? -eq 0 ]; then \
+echo "\e[0;34m\][\e[0;35m\]\u\e[0;32m\]: \e[0;36m\]\D{%I:%M%p} $(ddate +"%A, %B %e %Y") \e[0;33m\]($(git branch | grep ^*|sed s/\*\ //)) \
+$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; if [ "$?" -eq "0" ]; then \
+echo "\e[0;32m\]clean"; else \
+echo "\e[0;31m\]dirty"; fi)$(echo `git stash list` | grep "on" > /dev/null 2>&1; if [ "$?" -eq "0" ]; then \
+echo " \e[0;35m\]Stash"; fi)\e[0;34m\]]\n\e[0;31m\]\w \e[0;36m\]⚡";else \
+echo "\e[0;34m\][\e[0;35m\]\u\e[0;32m\]: \e[0;36m\]\D{%I:%M%p %D}\e[0;34m\]]\n\e[0;31m\]\w\e[0;36m\]⚡"; fi) \e[0m\]'
