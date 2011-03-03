@@ -4,8 +4,21 @@ $(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; if [ "$?" -eq "
 echo "\e[0;32m\]clean"; else \
 echo "\e[0;31m\]dirty"; fi)$(echo `git stash list` | grep "on" > /dev/null 2>&1; if [ "$?" -eq "0" ]; then \
 echo " \e[0;35m\]Stash"; fi)\e[0;34m\]]"
+
+# Check for RVM
 if [ -f `which rvm` ]; then \
 echo  "\e[0;32m\]Ruby: `rvm-prompt | cut -d "@" -f 1` | Gemset: `rvm gemset name`"; fi
-echo "\e[0;31m\]\w \e[0;36m\]⚡";else \
+echo -n "\e[0;31m\]\w"
+
+# Check for UTF-8 support
+echo $LANG | grep "utf8" > /dev/null 2>&1; if [ "$?" -eq "0" ]; then \
+echo "\e[0;36m\]⚡"; else \
+echo "\e[0;36m\]$"; fi; else \
+
+# The usual prompt, sans the git
 echo "\e[0;34m\][\e[0;35m\]\u\e[0;32m\]: \e[0;36m\]\D{%I:%M%p %D}\e[0;34m\]]\n\e[0;31m\]\w\e[0;36m\]⚡"; fi) \e[0m\]'
+
+#$(if [ -f `which ddate` ]; then ddate +"%{%A, %B %e%} %Y %N%nCelebrate %H"; else echo "\D{%I:%M%p}"; fi);
+#echo "$1 | wc -l`";
+#if [ $stashcount -gt "1" ]; then echo "{$stashcount}";fi
 
