@@ -3,4 +3,5 @@
 3. Clean up git working tree status (staged/unstaged changes)
 4. Add stash counter
 5. Make installation script
+6. Add a 'test' mode to the installation script
 
