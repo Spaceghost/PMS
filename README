@@ -1,3 +1,9 @@
 Johnneylee Jack Rollins
 A small script to make your shell prompt rather awesome.
 
+Installing:
+1. clone, download or otherwise locally obtain a copy of the PS1 file
+2. source it in your shell config. (usually ~/.bashrc)
+
+I'm working on an installer.
+
