@@ -6,7 +6,7 @@ echo -n "\e[0;34m\][\e[0;35m\]\u\e[0;32m\]: \e[0;36m\]\D{%I:%M%p}" $( if [ -f "/
 # Check git branch
 echo -n " \e[0;33m\]($(git branch | grep ^*|sed s/\*\ //)) \
 $(echo `git status` | grep -e "Changes to be committed" -e "Changed but not updated" -e "Untracked files" | sed s/\^#.// | sed s/:$// > /dev/null 2>&1; if [ "$?" -eq "0" ]; then \
-echo -n "\e[0;32m\]clean"; else \a
+echo -n "\e[0;32m\]clean"; else \
 echo -n "\e[0;31m\]dirty"; fi)"
 
 # Check for any stashes
