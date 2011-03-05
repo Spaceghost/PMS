@@ -5,7 +5,7 @@ echo -n "\e[0;34m\][\e[0;35m\]\u\e[0;32m\]: \e[0;36m\]\D{%I:%M%p}" $( if [ -f "/
 
 # Check git branch
 echo -n " \e[0;33m\]($(git branch | grep ^*|sed s/\*\ //)) \
-$(echo `git status` | grep -e "Changes to be committed" -e "Changed but not updated" -e "Untracked files" | sed s/\^#.// | sed s/:$// > /dev/null 2>&1; if [ "$?" -eq "0" ]; then \
+$(echo `git status -s` | sed "s/\([^ ]\) .*/\1/" | sort | uniq -c > /dev/null 2>&1; if [ "$?" -ne "0" ]; then \
 echo -n "\e[0;32m\]clean"; else \
 echo -n "\e[0;31m\]dirty"; fi)"
 
@@ -24,5 +24,10 @@ echo "\e[0;36m\]⚡"; else \
 echo "\e[0;36m\]$"; fi; else \
 
 # The usual prompt, sans the git
-echo "\e[0;34m\][\e[0;35m\]\u\e[0;32m\]: \e[0;36m\]\D{%I:%M%p %D}\e[0;34m\]]\n\e[0;31m\]\w\e[0;36m\]⚡"; fi) \e[0m\]'
+echo "\e[0;34m\][\e[0;35m\]\u\e[0;32m\]: \e[0;36m\]\D{%I:%M%p %D}\e[0;34m\]]"
+
+# Check for RVM
+if [ -f `which rvm` ]; then \
+echo  "\e[0;32m\]Ruby: `rvm-prompt | cut -d "@" -f 1` | Gemset: `rvm gemset name | sed s:.*/::`"; fi
+echo "\e[0;31m\]\w\e[0;36m\]⚡"; fi) \e[0m\]'
 
