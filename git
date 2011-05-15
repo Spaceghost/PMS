@@ -1,0 +1,25 @@
+#!/bin/env bash
+
+prompt_for_git_stashes() {
+git stash list | grep "on" > /dev/null 2>&1;
+if [ "$?" -eq "0" ]; then \
+  echo -n " \[\e[0;35m\]Stash "
+fi
+}
+
+prompt_for_git_branch() {
+  echo -n " \[\e[0;33m\](`git branch | grep ^*|sed s/\*\ //`)"
+}
+
+prompt_for_git_cleanliness() {
+git status | grep "nothing to commit" > /dev/null 2>&1
+if [ "$?" -eq "0" ]; then
+  echo -n $GREEN
+  check_for_unicode ✔ clean
+  echo -n $CLEAR
+else
+  echo -n $RED
+  check_for_unicode ✗ dirty
+  echo -n $CLEAR
+fi
+}
