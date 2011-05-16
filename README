@@ -27,3 +27,4 @@ TODO:
 12. Rewrite to generate a PS1 by using a config that calls functions and sets variables. I have no idea what I'm going to do for that, but rest assured, I will find out.
 13. Add theme support, probably doable with that config.
 14. Add plugin support, also through that config.
+15. Rewrite in ruby. Screw the rest of the world. I'm a rubyist.
