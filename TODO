@@ -8,4 +8,4 @@
  8. Perhaps add a TODO executable with TODO files and TODO file detection to PS1
  9. Add a variable the user could set to disable dirty detection if there are too many submodules and it's slowing their prompt down.
 10. Add ability to go from one-liner prompt to two line upon entering git repo.
-11. Figure out why the prompt wraps around on itself and stop that from happening. ✓
+11. Figure out why the prompt wraps around on itself and stop that from happening.

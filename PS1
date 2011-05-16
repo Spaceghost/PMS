@@ -1,4 +1,5 @@
 #!/bin/env bash
+#   Name: Prompt Management System (PMS)
 # Author: Johnneylee Jack Rollins
 #   Date: Monday, May 16th 2011
 shopt -s checkwinsize
