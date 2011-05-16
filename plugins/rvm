@@ -1,6 +1,6 @@
 #!/bin/env bash
 prompt_for_rvm() {
 if [ -f `which rvm` ]; then \
-echo  "\[\e[0;32m\]Ruby: `rvm-prompt | cut -d "@" -f 1` | Gemset: `rvm gemset name | sed s:.*/::`"; fi
-echo -n "\[\e[0;31m\]\w"
+printf "$green Ruby: `rvm-prompt | cut -d "@" -f 1` | Gemset: `rvm gemset name | sed s:.*/::`"; fi
+printf "$reset\n"
 }
