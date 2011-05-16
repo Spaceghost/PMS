@@ -1,17 +1,18 @@
 #!/bin/env bash
-RESET="\[\e[0;0m\]"
-BLUE="\[\e[0;34m\]"
-PURPLE="\[\e[0;35m\]"
-YELLOW="\[\e[0;33m\]"
-GREEN="\[\e[0;32m\]"
-RED="\[\e[0;31m\]"
+reset='\e[0;0m'
+blue='\e[0;34m'
+purple='\e[0;35m'
+yellow='\e[0;33m'
+green='\e[0;32m'
+teal='\e[0;36m'
+red='\e[0;31m'
 
 check_for_unicode() {
-local UNICODE=$1
-local ASCII=$2
+local unicode=$1
+local ascii=$2
 echo $LANG | grep "UTF-8" > /dev/null 2>&1;
 
 if [ "$?" -eq "0" ]; then \
-echo -n $UNICODE; else \
-echo -n $ASCII; fi;
+printf $unicode; else \
+printf $ascii; fi;
 }

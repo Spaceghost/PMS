@@ -2,10 +2,11 @@
 source $HOME/.bash.d/support
 
 prompt_line_one() {
-echo -n $BLUE"["$RESET
+printf $blue"["$reset
 username
 prompt_for_git
-echo $BLUE"]"$RESET
+printf $blue"]"$reset
+emblem
 }
 
 prompt_line_two() {
@@ -18,11 +19,15 @@ emblem
 }
 
 username() {
-echo -n $PURPLE"\u"$RESET
+printf $purple
+printf $USER
+printf $reset
 }
 
 cwd() {
-echo -n $RED"\w"$CLEAR
+printf $red
+printf $(pwd)
+printf $reset
 }
 
 ## Git
@@ -48,15 +53,15 @@ echo -n "\[\e[0;31m\]\w"
 }
 
 emblem() {
-echo -n "\[\e[0;36m\]"
+printf $teal
 check_for_unicode ⚡ $
-echo -n " \[\e[0m\]"
+printf " "$reset
 }
 
 load_functions() {
 prompt_line_one
-prompt_line_two
+#prompt_line_two
 #prompt_line_three
 }
 
-PS1="$(load_functions)"
+PS1='$(load_functions)'
