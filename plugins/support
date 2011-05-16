@@ -1,4 +1,5 @@
 #!/bin/env bash
+
 reset='\e[0;0m'
 blue='\e[0;34m'
 purple='\e[0;35m'

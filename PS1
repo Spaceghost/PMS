@@ -1,12 +1,14 @@
 #!/bin/env bash
-source $HOME/.bash.d/support
+# Preload
+script_base=$(dirname $BASH_SOURCE)
+source "$script_base/plugins/support"
+
 
 prompt_line_one() {
 printf $blue"["$reset
 username
 prompt_for_git
-printf $blue"]"$reset
-emblem
+printf $blue"]"$reset"\n"
 }
 
 prompt_line_two() {
@@ -36,20 +38,14 @@ git --version > /dev/null 2>&1;
 if [ "$?" -ne "0" ]; then \
   return
 else
-  source $HOME/.bash.d/git
+  if [ -d .git ]; then
+    source $script_base/plugins/git
+    prompt_for_git_branch
+    prompt_for_git_stashes
+    prompt_for_git_cleanliness
+  fi
 fi
-if [ -d .git ]; then
-  prompt_for_git_branch
-  prompt_for_git_stashes
-  prompt_for_git_cleanliness
-fi
-}
 
-prompt_for_rvm() {
-# Check for RVM
-if [ -f `which rvm` ]; then \
-echo  "\[\e[0;32m\]Ruby: `rvm-prompt | cut -d "@" -f 1` | Gemset: `rvm gemset name | sed s:.*/::`"; fi
-echo -n "\[\e[0;31m\]\w"
 }
 
 emblem() {
@@ -60,7 +56,7 @@ printf " "$reset
 
 load_functions() {
 prompt_line_one
-#prompt_line_two
+prompt_line_two
 #prompt_line_three
 }
 
