@@ -8,6 +8,18 @@ green='\e[0;32m'
 teal='\e[0;36m'
 red='\e[0;31m'
 
+username() {
+printf $purple
+printf $USER
+printf $reset
+}
+
+cwd() {
+printf $red
+printf `pwd`
+printf $reset
+}
+
 check_for_unicode() {
 local unicode=$1
 local ascii=$2

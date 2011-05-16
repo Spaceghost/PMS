@@ -2,8 +2,12 @@ Johnneylee Jack Rollins
 A small script to make your shell prompt rather awesome.
 
 Installing:
-1. clone, download or otherwise locally obtain a copy of the PS1 file
+1. clone the project. I use ~/.bash.d/ but you can use whatever.
 2. source it in your shell config. (usually ~/.bashrc)
 
 I'm working on an installer.
 
+Here's my default, and likely yours until I make a config file for you to use.
+Example:
+[spaceghost (master) ✗]
+/home/spaceghost/.bash.d⚡

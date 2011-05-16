@@ -1,9 +1,11 @@
-1. Add Ruby Support ✓
-2. Add Gemset Support ✓
-3. Clean up git working tree status (staged/unstaged changes)
-4. Add stash counter
-5. Make installation script
-6. Add a 'test' mode to the installation script
-7. Add continuous integration into the mix
-8. Perhaps add a TODO executable with TODO files and TODO file detection to PS1
-
+ 1. Add Ruby Support ✓
+ 2. Add Gemset Support ✓
+ 3. Clean up git working tree status (staged/unstaged changes)
+ 4. Add stash counter
+ 5. Make installation script
+ 6. Add a 'test' mode to the installation script
+ 7. Add continuous integration into the mix
+ 8. Perhaps add a TODO executable with TODO files and TODO file detection to PS1
+ 9. Add a variable the user could set to disable dirty detection if there are too many submodules and it's slowing their prompt down.
+10. Add ability to go from one-liner prompt to two line upon entering git repo.
+11. Figure out why the prompt wraps around on itself and stop that from happening. ✓
