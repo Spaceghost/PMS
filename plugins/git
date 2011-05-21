@@ -1,0 +1,36 @@
+#!/bin/env bash
+
+# This is a simple little incantation to get the current branch name.
+prompt_for_git_branch() {
+  printf " $yellow(`git branch | grep ^*|sed s/\*\ //`)$reset "
+}
+
+# Okay, this is a simplistic way to return if there are any stashes. Nothing
+# really that cool yet. I'm going to add stash counting instead of just
+# returning "Stash" if there are any. It'll probably look like this: {5} where
+# 5 is the number of stashes.
+prompt_for_git_stashes() {
+git stash list | grep "on" > /dev/null 2>&1;
+if [ "$?" -eq "0" ]; then \
+  printf $purple"Stash "
+fi
+}
+
+# Yet another simplistic function. It checks if git status returns a string, if
+# it does, then it says everything's clean. If not, then it says it's dirty. I'm
+# going to add counting of each kind of file, unstaged, untracked and staged.
+# Another note, if you have many submodules, the PS1 script will slow down.
+# One of my tests was with five submodules and it took 0.680 seconds to display
+# the prompt. You have been warned, here be dragons.
+prompt_for_git_cleanliness() {
+git status | grep "nothing to commit" > /dev/null 2>&1
+if [ "$?" -eq "0" ]; then
+  printf $green
+  check_for_unicode ✔ clean
+  printf $reset
+else
+  printf $red
+  check_for_unicode ✗ dirty
+  printf $reset
+fi
+}

@@ -1,0 +1,25 @@
+#!/bin/env bash
+detect_vcs() {
+vcs=""
+if [ -d .svn ]; then
+  vcs="svn"
+elif [ -d CVS ]; then
+  vcs="cvs"
+else
+  d="."
+  while ! [ "$d" -ef / ]; do
+    if [ -d "$d/.bzr" ]; then
+      vcs="bzr"
+    elif [ -d "$d/_darcs" ]; then
+      vcs="darcs"
+    elif [ -d "$d/.git" ]; then
+      vcs="git"
+    elif [ -d "$d/.hg" ]; then
+      vcs="hg"
+    fi
+    if [ -n "$vcs" ]; then break; fi
+    d="$d/.."
+  done
+fi
+echo $vcs
+}

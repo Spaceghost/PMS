@@ -1,0 +1,30 @@
+Johnneylee Jack Rollins
+A small script to make your shell prompt rather awesome.
+
+Installing:
+1. clone the project. I use ~/.bash.d/ but you can use whatever.
+2. source it in your shell config. (usually ~/.bashrc)
+
+I'm working on an installer.
+
+Here's my default, and likely yours until I make a config file for you to use.
+Example:
+[spaceghost (master) ✗]
+/home/spaceghost/.bash.d⚡
+
+TODO:
+ 1. Add Ruby Support ✓
+ 2. Add Gemset Support ✓
+ 3. Clean up git working tree status (staged/unstaged changes)
+ 4. Add stash counter
+ 5. Make installation script
+ 6. Add a 'test' mode to the installation script
+ 7. Add continuous integration into the mix
+ 8. Perhaps add a TODO executable with TODO files and TODO file detection to PS1
+ 9. Add a variable the user could set to disable dirty detection if there are too many submodules and it's slowing their prompt down.
+10. Add ability to go from one-liner prompt to two line upon entering git repo.
+11. Figure out why the prompt wraps around on itself and stop that from happening.
+12. Rewrite to generate a PS1 by using a config that calls functions and sets variables. I have no idea what I'm going to do for that, but rest assured, I will find out.
+13. Add theme support, probably doable with that config.
+14. Add plugin support, also through that config.
+15. Rewrite in ruby. Screw the rest of the world. I'm a rubyist.
