@@ -28,14 +28,15 @@ printf $blue"]"$reset"\n"
 }
 
 prompt_line_two() {
-cwd
-emblem
+source $script_base/plugins/rvm
+prompt_for_rvm
 }
 
 # There has to be at least something in each function, so I just leave somehting
 # in here to satisfy that requirement.
 
 prompt_line_three() {
+cwd
 emblem
 }
 
@@ -46,7 +47,7 @@ if [ "$?" -ne "0" ]; then \
   return
 else
   if [ -d .git ]; then
-    . $script_base/plugins/git
+    source $script_base/plugins/git
     prompt_for_git_branch
     prompt_for_git_stashes
     prompt_for_git_cleanliness
@@ -67,8 +68,8 @@ printf " "$reset
 # comment out the ones you don't want and everything should be peachy.
 load_functions() {
 prompt_line_one
-prompt_line_two
-#prompt_line_three
+#prompt_line_two
+prompt_line_three
 }
 
 # Haha, where all the magic happens. This shouldn't be too hard to understand.
